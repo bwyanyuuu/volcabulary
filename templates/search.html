@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="center">
+        <h1>請輸入要查詢的單字</h1>
+        <!--创建两个input输入框，定义id分别为name,age-->
+        <form method="POST" action="{{url_for('search_result')}}">
+            <input type="text" class="form-control" name="word" placeholder="search">
+            <button type="submit" class="btn btn-primary">查詢</button>
+        </form>
+        <h1>新建單字表</h1>
+        <form method="POST" action="{{url_for('search')}}">
+            <input type="text" class="form-control" name="list" placeholder="新建單字表">
+            <button type="submit" class="btn btn-primary" name="action" value="newList">新建</button>
+        </form>
+    </div>
+    
+    
+{% endblock %}

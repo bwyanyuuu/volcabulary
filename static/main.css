@@ -1,0 +1,163 @@
+.container{
+    height: 100vh;
+    width: 100vw;
+}
+.center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.content{
+    overflow: auto;
+    position: absolute;
+    /* margin-top: 4rem; */
+    top: 4rem;
+    right: 0;
+    left: 0;
+}
+input[type="checkbox"] {
+    font-family: system-ui, sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1.1;
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
+    transform: scale(2);
+  }
+  
+  input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control-color);
+  }
+  
+  input[type="checkbox"]:checked::before {
+    transform: scale(1);
+  }
+  /* .table-container {
+    
+  } */
+  
+  /* table {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-collapse: collapse;display: flex;
+    align-items: center;
+    justify-content: center;
+  } */
+  
+  th, td {
+    vertical-align: middle;
+  }
+/* .navbar{
+    position: fixed;
+    top: 0;
+} */
+/* .navbar-nav {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  } */
+/* .navbar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+}
+.navbar-nav li {
+    margin: 0 10px;
+}
+.nav-link {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+} */
+
+.word{
+    text-align: center;
+    word-wrap: break-word;
+  }
+  
+  .word-top{
+    border: solid 3px skyblue;
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 1rem;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+.word-bottom{
+    border: solid 3px skyblue;
+    border-radius: 10px;
+    height: 20vh;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+  
+#test-word {
+    font-size: xxx-large;
+}
+#test-cixing {
+    font-size: large;
+  }
+#test-explain {
+    font-size: xx-large;
+    margin: 2rem 0;
+}
+.bottom{
+    text-align: center;
+    margin: 3rem;
+    /* height: 30vh; */
+}
+  
+.bottom .btn, .wide{
+    margin: 1rem 1rem;
+    width: 6rem;
+}
+.view-deleteList{
+    width: 7rem;
+    margin-left: 10rem;
+}
+
+.select-list{
+    border: solid 3px skyblue;
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 1rem;
+    /* height: 80vh; */
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: auto; */
+}
+.select-list label{
+    display: inline-flex;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.edit-only button,
+.edit-only input,
+button.edit-only{
+    display: none;
+}
+.editing-form .edit-only button,
+.editing-form .edit-only input,
+.editing-form button.edit-only{
+    display: inline-block;
+}
