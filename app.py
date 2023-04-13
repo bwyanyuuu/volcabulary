@@ -15,6 +15,22 @@ current_list = None
 current_wordList = None
 select_list = None
 
+import socket
+
+def get_host_ip():
+    """
+    查询本机ip地址
+    :return: ip
+    """
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(('8.8.8.8', 80))
+        ip = s.getsockname()[0]
+    finally:
+        s.close()
+
+    return ip
+
 @app.route("/")
 def index():
     return redirect(url_for('search'))
@@ -22,20 +38,16 @@ def index():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     global select_list
+    ip = get_host_ip()
     if request.method == "GET":
         select_list = None
-        return render_template("search.html")
     
     elif request.method == "POST":
         if request.values['action'] == "newWord":
             li = [int(i) for i in request.form.getlist('idx')]
             explain = request.form.getlist('new-mean')
             cixing = [value for key, value in request.form.items() if key.startswith('new-cixing')]
-            print(li)
-            print(explain)
-            print(cixing)
             select_result = [current_result[i] for i in li] + ([[cixing[i], explain[i]] for i in range(len(explain))] if len(cixing) > 0 else [])
-            print(select_result)
             for s in select_result:
                 new_word = Word(request.values['word'], s[0], s[1], request.values["list"])
                 db.session.add(new_word)
@@ -48,13 +60,13 @@ def search():
                 db.session.commit() 
             except:
                 pass
-        return render_template("search.html")
+    return render_template("search.html", ip=ip)
 
 @app.route("/search_result", methods=["POST"])
 def search_result():
     if request.values['word']:
         global current_result
-        word = request.values['word']
+        word = request.values['word'].lower()
         current_result = dictionary(word)
         li = WordList.query.all()
         return render_template("search_result.html", word=word, result=current_result, list=li, select_list=select_list)
@@ -191,5 +203,5 @@ class WordList(db.Model):
  
     def __init__(self, name):
         self.name = name
-app.run(port=8080)
+app.run(host='0.0.0.0', port=8080)
 # python -m PyInstaller -F app.py --add-data=templates;templates --add-data "static;static" --add-data "database.db;database.db"

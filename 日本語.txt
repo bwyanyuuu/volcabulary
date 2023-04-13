@@ -1,0 +1,616 @@
+搜尋 payload
+Request URL: https://api.mojidict.com/parse/functions/union-api
+:authority: api.mojidict.com
+:method: POST
+:path: /parse/functions/union-api
+:scheme: https
+accept: */*
+accept-encoding: gzip, deflate, br
+accept-language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6
+content-length: 401
+content-type: text/plain
+origin: https://www.mojidict.com
+referer: https://www.mojidict.com/
+sec-ch-ua: "Google Chrome";v="111", "Not(A:Brand";v="8", "Chromium";v="111"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+sec-fetch-dest: empty
+sec-fetch-mode: cors
+sec-fetch-site: same-site
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+Request Method: POST
+{
+    "functions":[
+        {
+            "name":"search-all",
+            "params":{
+                "text":"甲斐",
+                "types":[
+                    102,
+                    106,
+                    103
+                ]
+            }
+        },
+        {
+            "name":"mojitest-examV2-searchQuestion-v2",
+            "params":{
+                "text":"甲斐",
+                "limit":1,
+                "page":1
+            }
+        }
+    ],
+    "_SessionToken":"r:e9dc731c360a15567189fe8c414e564b",
+    "_ClientVersion":"js3.4.1",
+    "_ApplicationId":"E62VyFVLMiW7kvbtVq3p",
+    "g_os":"PCWeb",
+    "g_ver":"v4.5.4.20230403",
+    "_InstallationId":"2d77cdbc-c40f-4ffd-a9fe-249af413a5a7"
+}
+{
+    "functions":[
+        {
+            "name":"search-all",
+            "params":{
+                "text":"だるま",
+                "types":[
+                    102,
+                    106,
+                    103
+                ]
+            }
+        },
+        {
+            "name":"mojitest-examV2-searchQuestion-v2",
+            "params":{
+                "text":"だるま",
+                "limit":1,
+                "page":1
+            }
+        }
+    ],
+    "_SessionToken":"r:e9dc731c360a15567189fe8c414e564b",
+    "_ClientVersion":"js3.4.1",
+    "_ApplicationId":"E62VyFVLMiW7kvbtVq3p",
+    "g_os":"PCWeb",
+    "g_ver":"v4.5.4.20230403",
+    "_InstallationId":"2d77cdbc-c40f-4ffd-a9fe-249af413a5a7"
+}
+搜訊 response
+{
+    "result":{
+        "code":200,
+        "results":{
+            "search-all":{
+                "code":200,
+                "result":{
+                    "word":{
+                        "searchResult":[
+                            {
+                                "targetId":"19891142",
+                                "targetType":102,
+                                "title":"甲斐 | かい ◎",
+                                "excerpt":"[名] 效果；价值；好处，用处；意义。（その行為に値するだけの値打ちや効果。） 同：効",
+                                "isFree":true
+                            },
+                            {
+                                "targetId":"198953496",
+                                "targetType":102,
+                                "title":"甲斐 | がい ◎",
+                                "excerpt":"[接尾] 有意义的，有价值的。（その行為の結果としての効果、価値、張り合いなどの意を表す。） ",
+                                "isFree":true
+                            },
+                            {
+                                "targetId":"198953501",
+                                "targetType":102,
+                                "title":"甲斐性 | かいしょう ③",
+                                "excerpt":"[名] 有志气，要强心，出息。（かいがいしい性質。働きや才覚があり、生活力に富んだ頼りになる気質。） ",
+                                "isFree":true
+                            },
+                            {
+                                "targetId":"198953499",
+                                "targetType":102,
+                                "title":"甲斐ない | かいない",
+                                "excerpt":"〔ききめがない〕没有成效;［むだ］白费. 〔価値のない〕没有价值;［不出来な］不成器;［志気のない］没志气.没有成效，白费，没有价值，不成器 ",
+                                "isFree":true
+                            },
+                            {
+                                "targetId":"198953500",
+                                "targetType":102,
+                                "title":"甲斐甲斐しい | かいがいしい ⑤",
+                                "excerpt":"[形容詞] 勤快。（動作がきびきびしていて、手ぎわがよい。てきぱきしている。） 诚恳。（仕事をやる動",
+                                "isFree":true
+                            }
+                        ]
+                    },
+                    "grammar":{
+                        "searchResult":[
+                            {
+                                "targetId":"C0OgT581m6",
+                                "targetType":106,
+                                "title":"～甲斐がある | ～かいがある",
+                                "excerpt":"[文法] 有效；有回报；……价值/回报/效果。\n\n表示做某事得到预期的结果或回报，有“很值得”的意思"
+                            }
+                        ]
+                    },
+                    "example":{
+                        "searchResult":[
+                            {
+                                "targetId":"1448",
+                                "targetType":103,
+                                "title":"甲斐がある",
+                                "excerpt":"有效；有意义。"
+                            },
+                            {
+                                "targetId":"8734",
+                                "targetType":103,
+                                "title":"やり甲斐を失う。",
+                                "excerpt":" 失去了干劲。"
+                            }
+                        ]
+                    }
+                }
+            },
+            "mojitest-examV2-searchQuestion-v2":{
+                "670":[
+                    {
+                        "title":"2015年12月",
+                        "tag":"N2",
+                        "objectId":"HlcWBskKIB"
+                    }
+                ],
+                "671":[
+                    {
+                        "title":"<p class=\"MsoNormal\" align=\"center\" style=\"text-align:center;\">\r\n\t(１)\r\n</p>\r\n<p class=\"MsoNormal\" align=\"justify\" style=\"text-align:justify;\">\r\n\t&nbsp;人間というのは、自分でわかっていることに関しては手早くポイントだけを取り出して相手に教えて、たくさんの説明をつい省略してしまいがちだ。そのせいで、教わる側が理解しにくくなってしまうこともある。人に教える時には、自分が理解した時点まで戻って丁寧に相手に伝えないと、うまく理解してもらえないのではないか。\r\n</p>\r\n<p class=\"MsoNormal\" align=\"justify\" style=\"text-align:justify;\">\r\n\t&nbsp;<span>また、そのプロセスの中で、教わる側が積極的に質問することがとても重要だと思う。質問をすれば、何を理解していないのか、何を誤解しているのかが、教える側にとてもよくわかるからだ。それに、同じことでも繰り返し説明されることによって、理解が深まるケース（注</span>1）も多い。\r\n</p>\r\n<p class=\"MsoNormal\" align=\"justify\" style=\"text-align:justify;\">\r\n\t&nbsp;個人的には、一回だけの説明で理解してもらえるケースというのは、実はとても少ないのではないかと思っている。\r\n</p>\r\n<p class=\"MsoNormal\" align=\"justify\" style=\"text-align:justify;\">\r\n\t&nbsp;また、すべてを教えるのではなく大部分を伝え、最後の部分は自分で考えて理解させるようにするのが、理想的な教え方ではないかと考えている。\r\n</p>\r\n<p class=\"MsoNormal\" align=\"justify\" style=\"text-align:justify;\">\r\n\t&nbsp;<span>一方的に入ってきた知識は、一方的に出て行きやすい。しかし、自分で体得（注</span>2）したものは出て行きにくい。\r\n</p>\r\n<p class=\"MsoNormal\">\r\n\t&nbsp;<span>小学生に大学の講義を聞かせてもチンプンかんプンな（注</span>3）ように、相手のレベルに合わせて、相手が必要としていることを教えなければ意味はない。それは、非常に微妙な調整を必要とする、<u>ある種の職人技</u>だ。そんなところが、教える側の大きなやり甲斐ではないかと考えている。&nbsp;(羽生善治「大局観ー自分と闘って負けない心」による）\r\n</p>\r\n<p class=\"MsoNormal\" align=\"justify\" style=\"text-align:justify;\">\r\n\t（注１）ケース：場合&nbsp;&nbsp;<span>（注</span>2）体得する：身につける&nbsp;&nbsp;<span>（注</span>3）チンプンかんプンな：全てわからない\r\n</p>",
+                        "dataType":21,
+                        "questionType":32,
+                        "examId":[
+                            "HlcWBskKIB"
+                        ],
+                        "identity":[
+                            "201512N2010311060-062*01"
+                        ],
+                        "objectId":"CCAG5ujgt7"
+                    }
+                ],
+                "result":[
+                    {
+                        "targetId":"CCAG5ujgt7",
+                        "targetType":"671",
+                        "matchContents":[
+                            {
+                                "position":"article",
+                                "contents":[
+                                    "そんなところが、教える側の大きなやり甲斐ではないかと考えている"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "limit":1,
+                "page":1,
+                "examsNum":73,
+                "code":200
+            }
+        }
+    }
+}
+{
+    "result":{
+        "code":200,
+        "results":{
+            "search-all":{
+                "code":200,
+                "result":{
+                    "word":{
+                        "searchResult":[
+                            {
+                                "targetId":"198983454",
+                                "targetType":102,
+                                "title":"達磨 | だるま ◎",
+                                "excerpt":"[名] 〈佛〉达磨。（中国禅宗の始祖。インドのバラモンの出身と伝え、6世紀初め中国に渡り、各地で禅を教えた。） ",
+                                "isFree":true
+                            },
+                            {
+                                "targetId":"198917185",
+                                "targetType":102,
+                                "title":"ダルマ | だるま ◎",
+                                "excerpt":"[名] dharma佛教的达摩；修行。（禅宗の始祖、達磨大師の坐禅姿をうつした縁起物玩具。赤塗りで、座におもりをつけ、倒してもすぐ立つようにつくった張り子製の起きあがり物が、全国各地でつくられている。） ",
+                                "isFree":true
+                            },
+                            {
+                                "targetId":"198976869",
+                                "targetType":102,
+                                "title":"雪だるま | ゆきだるま ③",
+                                "excerpt":"[名詞] 雪人；堆雪人。（雪を固めて達磨の形にこしらえたもの。）",
+                                "isFree":true
+                            },
+                            {
+                                "targetId":"198976936",
+                                "targetType":102,
+                                "title":"雪達磨 | ゆきだるま ③",
+                                "excerpt":"[名] 雪人。（雪を丸めてだるまの形にし、木炭や炭団(たどん)で目鼻口をつけたもの。） ",
+                                "isFree":true
+                            }
+                        ]
+                    },
+                    "grammar":{
+                        "searchResult":[
+                            
+                        ]
+                    },
+                    "example":{
+                        "searchResult":[
+                            {
+                                "targetId":"bsUpGIk0Kz",
+                                "targetType":103,
+                                "title":"火だるま"
+                            }
+                        ]
+                    }
+                }
+            },
+            "mojitest-examV2-searchQuestion-v2":{
+                "670":[
+                    
+                ],
+                "671":[
+                    
+                ],
+                "result":[
+                    
+                ],
+                "limit":1,
+                "page":1,
+                "examsNum":73,
+                "code":200
+            }
+        }
+    }
+}
+
+單字 payload
+Request URL: https://api.mojidict.com/parse/functions/nlt-fetchManyLatestWords
+Request Method: POST
+{
+    "itemsJson":[
+        {
+            "objectId":"198983454"
+        }
+    ],
+    "skipAccessories":false,
+    "_SessionToken":"r:e9dc731c360a15567189fe8c414e564b",
+    "_ClientVersion":"js3.4.1",
+    "_ApplicationId":"E62VyFVLMiW7kvbtVq3p",
+    "g_os":"PCWeb",
+    "g_ver":"v4.5.4.20230403",
+    "_InstallationId":"2d77cdbc-c40f-4ffd-a9fe-249af413a5a7"
+}
+單字本身
+{
+    "result":{
+        "1":[
+            
+        ],
+        "result":[
+            {
+                "word":{
+                    "spell":"齣",
+                    "pron":"こま",
+                    "accent":"①◎",
+                    "romaji":"koma",
+                    "langEnv":"zh-CN_ja",
+                    "updatedAt":"2023-04-11T18:42:27.961Z",
+                    "updatedBy":"",
+                    "excerpt":"[名詞] 画面，镜头。（演劇・映画・小説などのひと区切り・一場面。） 一场，一段情节。（物語や事件の",
+                    "vTag":2,
+                    "isFree":true,
+                    "quality":1000,
+                    "viewedNum":1762,
+                    "objectId":"1989116779"
+                },
+                "details":[
+                    {
+                        "title":"名詞",
+                        "wordId":"1989116779",
+                        "index":0,
+                        "updatedAt":"2020-02-05T07:58:22.120Z",
+                        "updatedBy":"isX02DXFUN",
+                        "objectId":"95169"
+                    }
+                ],
+                "subdetails":[
+                    {
+                        "title":"画面，镜头。（演劇・映画・小説などのひと区切り・一場面。）",
+                        "wordId":"1989116779",
+                        "detailsId":"95169",
+                        "index":0,
+                        "updatedAt":"2020-02-05T07:58:22.130Z",
+                        "updatedBy":"isX02DXFUN",
+                        "objectId":"130990"
+                    },
+                    {
+                        "title":"一场，一段情节。（物語や事件の中の一場面。）",
+                        "wordId":"1989116779",
+                        "detailsId":"95169",
+                        "index":1,
+                        "updatedAt":"2020-02-05T07:58:22.152Z",
+                        "updatedBy":"isX02DXFUN",
+                        "objectId":"130991"
+                    },
+                    {
+                        "title":"一次讲义。（講義もしくは指導に当たる回数。学校、特に大学で、2時間前後を一単位として1週間の時間表を作った場合のひと区切りなど。）",
+                        "wordId":"1989116779",
+                        "detailsId":"95169",
+                        "index":2,
+                        "updatedAt":"2020-02-05T07:58:22.160Z",
+                        "updatedBy":"isX02DXFUN",
+                        "objectId":"130992"
+                    }
+                ],
+                "examples":[
+                    {
+                        "title":"四齣漫画。",
+                        "trans":"四格漫画。",
+                        "wordId":"1989116779",
+                        "subdetailsId":"130990",
+                        "langEnv":"zh-CN_ja",
+                        "index":0,
+                        "updatedAt":"2023-01-27T13:39:26.651Z",
+                        "updatedBy":"isX02DXFUN",
+                        "isFree":true,
+                        "quality":1000,
+                        "isChecked":false,
+                        "viewedNum":4,
+                        "objectId":"101086",
+                        "notationTitle":"<ruby ><rb>四</rb><rp>(</rp><rt roma=\"yon\" hiragana=\"よん\" lemma=\"四\" lemma-t=\"\"></rt><rp>)</rp></ruby><ruby ><rb>齣</rb><rp>(</rp><rt roma=\"koma\" hiragana=\"こま\" lemma=\"齣\" lemma-t=\"\"></rt><rp>)</rp></ruby><ruby n4><rb>漫画</rb><rp>(</rp><rt roma=\"manga\" hiragana=\"まんが\" lemma=\"漫画\" lemma-t=\"\"></rt><rp>)</rp></ruby><span class=\"moji-toolkit-org\"  lemma=\"。\" lemma-t=\"\">。</span>"
+                    }
+                ]
+            }
+        ],
+        "code":200
+    }
+}
+{
+    "result":{
+        "1":[
+            
+        ],
+        "result":[
+            {
+                "word":{
+                    "excerpt":"[自动#一类] 拥挤，混杂，混乱。（人や物がいっぱい集まる。混雑する。）",
+                    "spell":"混む",
+                    "accent":"①",
+                    "pron":"こむ",
+                    "romaji":"komu",
+                    "createdAt":"2019-05-07T03:49:27.659Z",
+                    "updatedAt":"2023-04-11T19:09:57.051Z",
+                    "tags":"N4",
+                    "isFree":true,
+                    "contentUpdatedAt":{
+                        "__type":"Date",
+                        "iso":"2022-07-14T10:43:51.844Z"
+                    },
+                    "updatedBy":"9r8XOy1RcF",
+                    "vTag":1,
+                    "quality":1000,
+                    "viewedNum":6470,
+                    "outSharedNum":1,
+                    "objectId":"198955887"
+                },
+                "details":[
+                    {
+                        "title":"自动#一类",
+                        "index":0,
+                        "createdAt":"2019-05-07T03:49:29.111Z",
+                        "updatedAt":"2022-07-14T10:43:51.952Z",
+                        "wordId":"198955887",
+                        "contentUpdatedAt":{
+                            "__type":"Date",
+                            "iso":"2022-07-14T10:43:51.950Z"
+                        },
+                        "updatedBy":"9r8XOy1RcF",
+                        "vTag":1,
+                        "objectId":"47287"
+                    }
+                ],
+                "subdetails":[
+                    {
+                        "title":"拥挤，混杂，混乱。（人や物がいっぱい集まる。混雑する。）",
+                        "index":0,
+                        "createdAt":"2019-05-07T03:49:31.269Z",
+                        "updatedAt":"2022-07-14T10:43:51.998Z",
+                        "wordId":"198955887",
+                        "detailsId":"47287",
+                        "contentUpdatedAt":{
+                            "__type":"Date",
+                            "iso":"2022-07-14T10:43:51.996Z"
+                        },
+                        "updatedBy":"9r8XOy1RcF",
+                        "vTag":1,
+                        "objectId":"66034"
+                    }
+                ],
+                "examples":[
+                    {
+                        "title":"ラッシュアワーで電車が混む。",
+                        "index":0,
+                        "trans":"高峰期公交很挤。",
+                        "createdAt":"2019-05-07T03:49:32.399Z",
+                        "updatedAt":"2023-03-28T12:37:41.813Z",
+                        "wordId":"198955887",
+                        "subdetailsId":"66034",
+                        "isFree":true,
+                        "contentUpdatedAt":{
+                            "__type":"Date",
+                            "iso":"2022-07-14T10:43:52.038Z"
+                        },
+                        "updatedBy":"9r8XOy1RcF",
+                        "vTag":1,
+                        "quality":1000,
+                        "isChecked":false,
+                        "viewedNum":25,
+                        "objectId":"45608",
+                        "notationTitle":"<span class=\"moji-toolkit-org\"  lemma=\"ラッシュ-rush\" lemma-t=\"rush\">ラッシュ</span><span class=\"moji-toolkit-org\"  lemma=\"アワー-hour\" lemma-t=\"hour\">アワー</span><span class=\"moji-toolkit-org\"  lemma=\"で\" lemma-t=\"\">で</span><ruby n5><rb>電車</rb><rp>(</rp><rt roma=\"densya\" hiragana=\"でんしゃ\" lemma=\"電車\" lemma-t=\"\"></rt><rp>)</rp></ruby><span class=\"moji-toolkit-org\"  lemma=\"が\" lemma-t=\"\">が</span><ruby n4><rb>混む</rb><rp>(</rp><rt roma=\"komu\" hiragana=\"こむ\" lemma=\"混む\" lemma-t=\"\"></rt><rp>)</rp></ruby><span class=\"moji-toolkit-org\"  lemma=\"。\" lemma-t=\"\">。</span>"
+                    },
+                    {
+                        "title":"道が混んでいる。",
+                        "index":1,
+                        "trans":"路上很堵。",
+                        "createdAt":"2019-05-07T03:49:33.044Z",
+                        "updatedAt":"2023-03-28T02:57:46.653Z",
+                        "wordId":"198955887",
+                        "subdetailsId":"66034",
+                        "isFree":true,
+                        "contentUpdatedAt":{
+                            "__type":"Date",
+                            "iso":"2022-07-14T10:43:52.137Z"
+                        },
+                        "updatedBy":"9r8XOy1RcF",
+                        "vTag":1,
+                        "quality":1000,
+                        "isChecked":false,
+                        "viewedNum":35,
+                        "objectId":"45609",
+                        "notationTitle":"<ruby n2 n5><rb>道</rb><rp>(</rp><rt roma=\"miti\" hiragana=\"みち\" lemma=\"道\" lemma-t=\"\"></rt><rp>)</rp></ruby><span class=\"moji-toolkit-org\"  lemma=\"が\" lemma-t=\"\">が</span><ruby n4><rb>混ん</rb><rp>(</rp><rt roma=\"kon\" hiragana=\"こん\" lemma=\"混む\" lemma-t=\"混む\"></rt><rp>)</rp></ruby><span class=\"moji-toolkit-org\"  lemma=\"て\" lemma-t=\"\">で</span><span class=\"moji-toolkit-org\"  lemma=\"居る\" lemma-t=\"\">いる</span><span class=\"moji-toolkit-org\"  lemma=\"。\" lemma-t=\"\">。</span>"
+                    }
+                ]
+            }
+        ],
+        "code":200
+    }
+}
+{
+    "result":{
+        "1":[
+            
+        ],
+        "result":[
+            {
+                "word":{
+                    "excerpt":"[自动#一类] 搀混，搀杂，混杂，夹杂。（二種類以上のものが一緒になって、一体となる。）",
+                    "spell":"混ざる",
+                    "accent":"②",
+                    "pron":"まざる",
+                    "romaji":"mazaru",
+                    "createdAt":"2019-05-07T03:49:27.805Z",
+                    "updatedAt":"2023-04-11T19:14:01.239Z",
+                    "tags":"N2#考研",
+                    "isFree":true,
+                    "contentUpdatedAt":{
+                        "__type":"Date",
+                        "iso":"2022-07-13T09:29:12.490Z"
+                    },
+                    "updatedBy":"9r8XOy1RcF",
+                    "vTag":5,
+                    "quality":1000,
+                    "viewedNum":7006,
+                    "objectId":"198955870"
+                },
+                "details":[
+                    {
+                        "title":"自动#一类",
+                        "index":0,
+                        "createdAt":"2019-05-07T03:49:28.800Z",
+                        "updatedAt":"2022-07-13T09:29:12.599Z",
+                        "wordId":"198955870",
+                        "contentUpdatedAt":{
+                            "__type":"Date",
+                            "iso":"2022-07-13T09:29:12.597Z"
+                        },
+                        "updatedBy":"9r8XOy1RcF",
+                        "vTag":5,
+                        "objectId":"47272"
+                    }
+                ],
+                "subdetails":[
+                    {
+                        "title":"搀混，搀杂，混杂，夹杂。（二種類以上のものが一緒になって、一体となる。）",
+                        "index":0,
+                        "createdAt":"2019-05-07T03:49:31.006Z",
+                        "updatedAt":"2022-07-13T09:29:12.640Z",
+                        "wordId":"198955870",
+                        "detailsId":"47272",
+                        "contentUpdatedAt":{
+                            "__type":"Date",
+                            "iso":"2022-07-13T09:29:12.639Z"
+                        },
+                        "updatedBy":"9r8XOy1RcF",
+                        "vTag":5,
+                        "objectId":"66011"
+                    }
+                ],
+                "examples":[
+                    {
+                        "title":"水と油は混ざらない。",
+                        "index":0,
+                        "trans":"水和油掺不到一起。",
+                        "createdAt":"2019-05-07T03:49:32.812Z",
+                        "updatedAt":"2023-02-25T07:27:04.293Z",
+                        "wordId":"198955870",
+                        "subdetailsId":"66011",
+                        "isFree":true,
+                        "contentUpdatedAt":{
+                            "__type":"Date",
+                            "iso":"2022-07-13T09:29:12.699Z"
+                        },
+                        "updatedBy":"9r8XOy1RcF",
+                        "vTag":5,
+                        "quality":1000,
+                        "isChecked":false,
+                        "viewedNum":8,
+                        "objectId":"45583",
+                        "notationTitle":"<ruby n5><rb>水</rb><rp>(</rp><rt roma=\"mizu\" hiragana=\"みず\" lemma=\"水\" lemma-t=\"\"></rt><rp>)</rp></ruby><span class=\"moji-toolkit-org\"  lemma=\"と\" lemma-t=\"\">と</span><ruby n4><rb>油</rb><rp>(</rp><rt roma=\"abura\" hiragana=\"あぶら\" lemma=\"油\" lemma-t=\"\"></rt><rp>)</rp></ruby><span class=\"moji-toolkit-org\"  lemma=\"は\" lemma-t=\"\">は</span><ruby n2><rb>混ざら</rb><rp>(</rp><rt roma=\"mazara\" hiragana=\"まざら\" lemma=\"混ざる\" lemma-t=\"混ざる\"></rt><rp>)</rp></ruby><span class=\"moji-toolkit-org\" n5 lemma=\"ない\" lemma-t=\"\">ない</span><span class=\"moji-toolkit-org\"  lemma=\"。\" lemma-t=\"\">。</span>"
+                    },
+                    {
+                        "contentUpdatedAt":{
+                            "__type":"Date",
+                            "iso":"2022-07-13T09:29:12.832Z"
+                        },
+                        "createdBy":"9r8XOy1RcF",
+                        "wordId":"198955870",
+                        "updatedBy":"9r8XOy1RcF",
+                        "title":"米に砂が混ざっている。",
+                        "trans":"米里杂着沙子。",
+                        "index":1,
+                        "subdetailsId":"66011",
+                        "vTag":4,
+                        "isFree":false,
+                        "createdAt":"2022-07-13T09:28:12.045Z",
+                        "updatedAt":"2023-03-08T02:57:07.388Z",
+                        "quality":1000,
+                        "isChecked":false,
+                        "viewedNum":6,
+                        "objectId":"D310oe0cVj",
+                        "notationTitle":"<ruby n4><rb>米</rb><rp>(</rp><rt roma=\"bei\" hiragana=\"べい\" lemma=\"米\" lemma-t=\"\"></rt><rp>)</rp></ruby><span class=\"moji-toolkit-org\"  lemma=\"に\" lemma-t=\"\">に</span><ruby n3 n4><rb>砂</rb><rp>(</rp><rt roma=\"suna\" hiragana=\"すな\" lemma=\"砂\" lemma-t=\"\"></rt><rp>)</rp></ruby><span class=\"moji-toolkit-org\"  lemma=\"が\" lemma-t=\"\">が</span><ruby n2><rb>混ざっ</rb><rp>(</rp><rt roma=\"mazatsu\" hiragana=\"まざっ\" lemma=\"混ざる\" lemma-t=\"混ざる\"></rt><rp>)</rp></ruby><span class=\"moji-toolkit-org\"  lemma=\"て\" lemma-t=\"\">て</span><span class=\"moji-toolkit-org\"  lemma=\"居る\" lemma-t=\"\">いる</span><span class=\"moji-toolkit-org\"  lemma=\"。\" lemma-t=\"\">。</span>"
+                    },
+                    {
+                        "contentUpdatedAt":{
+                            "__type":"Date",
+                            "iso":"2022-07-13T09:29:12.942Z"
+                        },
+                        "createdBy":"9r8XOy1RcF",
+                        "wordId":"198955870",
+                        "updatedBy":"9r8XOy1RcF",
+                        "title":"不良品が混ざっている。",
+                        "trans":"混进劣质品。",
+                        "index":2,
+                        "subdetailsId":"66011",
+                        "vTag":4,
+                        "isFree":false,
+                        "createdAt":"2022-07-13T09:28:12.074Z",
+                        "updatedAt":"2023-03-02T15:02:32.369Z",
+                        "quality":1000,
+                        "isChecked":false,
+                        "viewedNum":3,
+                        "objectId":"gXlzIf7F91",
+                        "notationTitle":"<ruby n2><rb>不良</rb><rp>(</rp><rt roma=\"huryou\" hiragana=\"ふりょう\" lemma=\"不良\" lemma-t=\"\"></rt><rp>)</rp></ruby><ruby n2 n3><rb>品</rb><rp>(</rp><rt roma=\"hin\" hiragana=\"ひん\" lemma=\"品\" lemma-t=\"\"></rt><rp>)</rp></ruby><span class=\"moji-toolkit-org\"  lemma=\"が\" lemma-t=\"\">が</span><ruby n2><rb>混ざっ</rb><rp>(</rp><rt roma=\"mazatsu\" hiragana=\"まざっ\" lemma=\"混ざる\" lemma-t=\"混ざる\"></rt><rp>)</rp></ruby><span class=\"moji-toolkit-org\"  lemma=\"て\" lemma-t=\"\">て</span><span class=\"moji-toolkit-org\"  lemma=\"居る\" lemma-t=\"\">いる</span><span class=\"moji-toolkit-org\"  lemma=\"。\" lemma-t=\"\">。</span>"
+                    }
+                ]
+            }
+        ],
+        "code":200
+    }
+}

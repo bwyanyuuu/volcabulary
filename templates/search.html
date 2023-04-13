@@ -1,17 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="center">
-        <h1>請輸入要查詢的單字</h1>
-        <!--创建两个input输入框，定义id分别为name,age-->
-        <form method="POST" action="{{url_for('search_result')}}">
-            <input type="text" class="form-control" name="word" placeholder="search">
-            <button type="submit" class="btn btn-primary">查詢</button>
-        </form>
-        <h1>新建單字表</h1>
-        <form method="POST" action="{{url_for('search')}}">
-            <input type="text" class="form-control" name="list" placeholder="新建單字表">
-            <button type="submit" class="btn btn-primary" name="action" value="newList">新建</button>
-        </form>
+        <div class="select-list">
+            <h1>請輸入要查詢的單字</h1><br>
+            <!--创建两个input输入框，定义id分别为name,age-->
+            <form method="POST" action="{{url_for('search_result')}}">
+                <input type="text" name="word" placeholder="search">
+                <button type="submit" class="btn btn-primary">查詢</button>
+            </form>
+        </div>    
+        <div class="select-list">
+            <h1>新建單字表</h1><br>
+            <form method="POST" action="{{url_for('search')}}">
+                <input type="text" name="list" placeholder="新建單字表">
+                <button type="submit" class="btn btn-primary" name="action" value="newList">新建</button>
+            </form>
+        </div>
+        <div class="select-list">
+            <h1>其他裝置請連線至</h1>
+            <h1 style="color: red">{{ip}}:8080</h1>
+        </div>
     </div>
     
     

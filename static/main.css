@@ -15,6 +15,7 @@
     top: 4rem;
     right: 0;
     left: 0;
+    padding: 0 1rem;
 }
 input[type="checkbox"] {
     font-family: system-ui, sans-serif;
@@ -25,6 +26,7 @@ input[type="checkbox"] {
     grid-template-columns: 1em auto;
     gap: 0.5em;
     transform: scale(2);
+    margin-left: 1rem;
   }
   
   input[type="checkbox"]::before {
@@ -94,7 +96,7 @@ input[type="checkbox"] {
     border-radius: 10px;
     padding: 2rem;
     margin: 1rem;
-    height: 50vh;
+    height: 35vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -103,7 +105,7 @@ input[type="checkbox"] {
 .word-bottom{
     border: solid 3px skyblue;
     border-radius: 10px;
-    height: 20vh;
+    height: 25vh;
     margin: 1rem;
     display: flex;
     flex-direction: column;
@@ -111,14 +113,14 @@ input[type="checkbox"] {
 }
   
 #test-word {
-    font-size: xxx-large;
+    font-size: 5rem;
 }
 #test-cixing {
-    font-size: large;
+    font-size: 2rem;
   }
 #test-explain {
-    font-size: xx-large;
     margin: 2rem 0;
+    font-size: 3rem;
 }
 .bottom{
     text-align: center;
@@ -160,4 +162,12 @@ button.edit-only{
 .editing-form .edit-only input,
 .editing-form button.edit-only{
     display: inline-block;
+}
+.editing-form input[name="cixing"],
+.editing-form input[name="new-cixing"]{
+    width: 3rem;
+}
+.editing-form input[name="word"],
+.editing-form input[name="new-word"]{
+    width: 8rem;
 }
