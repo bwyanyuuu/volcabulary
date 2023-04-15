@@ -6,28 +6,6 @@ $(document).ready(function(){
         $("tbody").append(`
             <tr>
                 <th scope="row"><button type="button" class="btn btn-danger btn-rmvColumn">刪除</button></th>
-                <td colspan="2">
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <input type="radio" class="btn-check" name="new-cixing` + new_cnt + `" value="無" id="無` + new_cnt + `">
-                    <label class="btn btn-outline-primary" for="無` + new_cnt + `">無</label>
-                    <input type="radio" class="btn-check" name="new-cixing` + new_cnt + `" value="副" id="副` + new_cnt + `">
-                    <label class="btn btn-outline-primary" for="副` + new_cnt + `">副</label>
-                    <input type="radio" class="btn-check" name="new-cixing` + new_cnt + `" value="動" id="動` + new_cnt + `">
-                    <label class="btn btn-outline-primary" for="動` + new_cnt + `">動</label>
-                    <input type="radio" class="btn-check" name="new-cixing` + new_cnt + `" value="形" id="形` + new_cnt + `">
-                    <label class="btn btn-outline-primary" for="形` + new_cnt + `">形</label>
-                    <input type="radio" class="btn-check" name="new-cixing` + new_cnt + `" value="名" id="名` + new_cnt + `">
-                    <label class="btn btn-outline-primary" for="名` + new_cnt + `">名</label>
-                    <input type="radio" class="btn-check" name="new-cixing` + new_cnt + `" value="代" id="代` + new_cnt + `">
-                    <label class="btn btn-outline-primary" for="代` + new_cnt + `">代</label>
-                    <input type="radio" class="btn-check" name="new-cixing` + new_cnt + `" value="介" id="介` + new_cnt + `">
-                    <label class="btn btn-outline-primary" for="介` + new_cnt + `">介</label>
-                    <input type="radio" class="btn-check" name="new-cixing` + new_cnt + `" value="連" id="連` + new_cnt + `">
-                    <label class="btn btn-outline-primary" for="連` + new_cnt + `">連</label>
-                    <input type="radio" class="btn-check" name="new-cixing` + new_cnt + `" value="感" id="感` + new_cnt + `">
-                    <label class="btn btn-outline-primary" for="感` + new_cnt + `">感</label>
-                </div>
-                </td>
                 <td><input type="text" name="new-mean"></td>
             </tr>
         `);
@@ -99,6 +77,78 @@ $(document).ready(function(){
             return false;
         }
     });
+    // $('#search-form').submit(function(event) {
+    $('#search-btn').click(function(event) {
+        // 防止表單提交
+        event.preventDefault();
+        // 序列化表單數據
+        var formData = $('#search-form').serialize();
+        // 發送 AJAX 請求
+        $.ajax({
+            url: '/search',
+            type: 'POST',
+            data: formData,
+            // contentType: 'application/json',
+            dataType: 'json',
+            success: function(data) {
+                //將回傳的JSON資料顯示在模態視窗中
+                html = '';
+                for (var i = 0; i < data.result.length; i++) {
+                    html += '<li class="list-group-item" href="/search_result?id=' + data.result[i][0] + '">'
+                    html += '<a href="/search_result?id=' + data.result[i][0] + '">'
+                    
+                    html += '<p>' + data.result[i][1] + '</p>';
+                    html += '<p>' + data.result[i][2] + '</p>';
+                    html += '</a>';
+                    html += '</li>';
+                }
+                $("#result ul").html(html);
+                $('#exampleModal').modal('show');
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                alert('Error: ' + errorThrown);
+            }
+        });
+      });
+    //   $("li.list-group-item").on('click', function() {
+    //     var url = $(this).attr("href");
+    //     window.location.href = url;
+    //   });
+    //   $('.list-group-item').on('click', function() {
+    //     // 獲取點擊的列表項目的索引值
+    //     var index = $(this).index();
+        
+    //     // 根據索引值獲取對應的表格
+    //     var table = $('table').eq(index);
+
+    //     // 發送 AJAX 請求
+    //     $.ajax({
+    //         url: '/search_result',
+    //         type: 'POST',
+    //         data: formData,
+    //         // contentType: 'application/json',
+    //         dataType: 'json',
+    //         success: function(data) {
+    //             //將回傳的JSON資料顯示在模態視窗中
+    //             html = '';
+    //             for (var i = 0; i < data.result.length; i++) {
+    //                 html += '<li>'
+    //                 html += '<p>' + data.result[i][1] + '</p><br>';
+    //                 html += '<p>' + data.result[i][2] + '</p>';
+    //                 html += '</li>';
+    //             }
+    //             $("#result ul").html(html);
+    //             $('#exampleModal').modal('show');
+    //         },
+    //         error: function(xhr, textStatus, errorThrown) {
+    //             alert('Error: ' + errorThrown);
+    //         }
+    //     });
+        
+    //     // 將表格顯示，並隱藏其它表格
+    //     table.show().siblings('table').hide();
+    //   });
+
     // $('#edit-form').submit(function(event) {
     //     // Prevent default form submission action
     //     event.preventDefault();

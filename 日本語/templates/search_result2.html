@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+			<div class="col-lg col-12">
+				<!-- 左邊欄位，設置一個列表 -->
+				<ul id="list" class="list-group">
+					<li class="list-group-item active" data-id="1">List 1</li>
+					<li class="list-group-item" data-id="2">List 2</li>
+					<li class="list-group-item" data-id="3">List 3</li>
+				</ul>
+			</div>
+			<div class="col-lg col-12">
+				<!-- 右邊欄位，動態生成 table -->
+                <form method="POST" action="{{url_for('search_result')}}">
+				<table id="table" class="table table-bordered table-hover">
+					<thead>
+						<tr>
+							<th></th>
+							<th>意味</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Product 1</td>
+							<td>100</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Product 2</td>
+							<td>200</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>Product 3</td>
+							<td>300</td>
+						</tr>
+					</tbody>
+				</table>
+                <button type="submit" name="action" value="new">加入</button>
+			</div>
+
+{% endblock %}

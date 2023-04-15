@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="center">
+        <div class="select-list">
+            <h1>請輸入要查詢的單字</h1><br>
+            <!--创建两个input输入框，定义id分别为name,age-->
+            <form method="POST" action="{{url_for('search_result')}}" id="search-form" >
+                <input type="text" name="word" placeholder="search">
+                <input type="hidden" name="action" value="search">
+                <button type="submit" class="btn btn-primary" name="action" value="search" id="search-btn">查詢</button>
+            </form>
+        </div>    
+        <div class="select-list">
+            <h1>新建單字表</h1><br>
+            <form method="POST" action="{{url_for('search')}}">
+                <input type="text" name="list" placeholder="新建單字表">
+                <button type="submit" class="btn btn-primary" name="action" value="newList">新建</button>
+            </form>
+        </div>
+        <div class="select-list">
+            <h1>其他裝置請連線至</h1>
+            <h1 style="color: red">{{ip}}:8080</h1>
+        </div>
+
+        <!--按鈕觸發模態視窗-->
+        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Submit</button> -->
+        
+        </div>
+    </div>
+    <!--模態視窗-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">回傳資料</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <!--用來顯示回傳資料的區塊-->
+            <div id="result">
+                <ul class="list-group">
+
+                </ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+        </div>
+        </div>
+    </div>
+    
+{% endblock %}

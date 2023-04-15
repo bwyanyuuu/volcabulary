@@ -1,0 +1,1 @@
+python -m pip install -y flask_sqlalchemy flask bs4

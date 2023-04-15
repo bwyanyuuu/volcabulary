@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="POST" action="{{url_for('view')}}" id="select-form">
+    <input name="action" value="list" hidden>
+    <select class="form-select" name="list" id="select-options">
+        <option value="all" selected>全部</option>
+        {% for l in list %}
+        <option value="{{l.name}}" 
+        {% if l.name == select_list %}
+        selected
+        {% endif %}>{{l.name}}</option>
+        {% endfor %}
+    </select>
+</form>
+    
+<form method="POST" action="{{url_for('view')}}" id="edit-form" 
+    {% if isEditing %}
+        class="editing-form"
+    {% endif %}>
+    {% if select_list != "all" %}
+    <button type="button" class="btn btn-primary view-editColumn wide">管理</button>
+    {% endif %}
+    <button type="button" class="btn btn-info view-addColumn edit-only">新增項目</button>
+    <button type="submit" class="btn btn-success view-addCommit edit-only" name="action" value="add">新增</button>
+    <button type="submit" class="btn btn-danger view-deleteColumn edit-only" name="action" value="delete">刪除</button>
+    <button type="submit" class="btn btn-danger view-deleteList edit-only" name="action" value="deleteList">刪除單字表</button>
+    <input name="list" value="{{select_list}}" hidden>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">單字</th>
+            <th scope="col">詞性</th>
+            <th scope="col">解釋</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for w in word %}
+            <tr>
+                <th class="edit-only"><input type="checkbox" name="idx" value={{w.id}}></th>
+                <td>{{w.word}}</td>
+                <td>{{w.cixing}}</td>
+                <td>{{w.explain}}</td>
+                <td class="edit-only">
+                    <button type="button" class="btn btn-info view-edit">編輯</button>
+                    <button type="submit" class="btn btn-success view-edited" name="action" value="modify" style="display: none;">完成</button>
+                </td>
+            </tr>
+            {% endfor %}         
+        </tbody>          
+    </table>
+</form>
+{% endblock %}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="../static/main.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/main.css">
+    <title>字典單字表</title>
+</head>
+<body>
+    
+    <div class="container">
+        <nav class="navbar navbar-expand navbar-dark bg-primary col-lg-8 col-12 mx-auto fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">字典單字表</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active"href="/search">搜尋</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/select">考試/背單字</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/view">單字表</a>
+                    </li>
+                    </ul>
+                    <!-- <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form> -->
+                </div>
+            </div>
+        </nav>
+        <div class="row content col-lg-8 col-12 mx-auto">
+            <!-- <div class=" content"> -->
+                {% block content %} {% endblock %}
+            <!-- </div> -->
+        </div>
+    </div>
+</body>
+</html>

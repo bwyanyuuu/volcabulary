@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<form id="select-form" method="POST" action="{{url_for('select')}}">
+    <div class="select-list">
+    {% for l in list %}
+        <input type="checkbox" class="btn-check" name="list" id="{{l.name}}" value="{{l.name}}" autocomplete="off">
+        <label class="btn btn-outline-primary" for="{{l.name}}">{{l.name}}</label>
+    {% endfor %}
+    </div>
+    <button type="submit" class="btn btn-primary" name="action" value="test">考試</button>
+    <button type="submit" class="btn btn-primary" name="action" value="memory">背單字</button>
+</form>
+
+{% endblock %}

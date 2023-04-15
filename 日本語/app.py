@@ -1,8 +1,8 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 import os, random
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-from funcctionality import *
+from nihonngo import *
 
 app = Flask(__name__)
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -33,45 +33,55 @@ def get_host_ip():
 
 @app.route("/")
 def index():
+    db.create_all()
     return redirect(url_for('search'))
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
     global select_list
+    
     ip = get_host_ip()
     if request.method == "GET":
         select_list = None
     
     elif request.method == "POST":
-        if request.values['action'] == "newWord":
-            li = [int(i) for i in request.form.getlist('idx')]
-            explain = request.form.getlist('new-mean')
-            cixing = [value for key, value in request.form.items() if key.startswith('new-cixing')]
-            select_result = [current_result[i] for i in li] + ([[cixing[i], explain[i]] for i in range(len(explain))] if len(cixing) > 0 else [])
-            for s in select_result:
-                new_word = Word(request.values['word'], s[0], s[1], request.values["list"])
-                db.session.add(new_word)
-            db.session.commit()
-            select_list = request.values["list"]
-        elif request.values['action'] == "newList":
-            try:
-                newList = WordList(request.values["list"])
-                db.session.add(newList)
-                db.session.commit() 
-            except:
-                pass
+        print(request.values)
+        # if request.values['action'] == "newWord":
+        #     li = [int(i) for i in request.form.getlist('idx')]
+        #     explain = request.form.getlist('new-mean')
+        #     cixing = [value for key, value in request.form.items() if key.startswith('new-cixing')]
+        #     select_result = [current_result[i] for i in li] + ([[cixing[i], explain[i]] for i in range(len(explain))] if len(cixing) > 0 else [])
+        #     for s in select_result:
+        #         new_word = Word(request.values['word'], s[0], s[1], request.values["list"])
+        #         db.session.add(new_word)
+        #     db.session.commit()
+        #     select_list = request.values["list"]
+        # elif request.values['action'] == "newList":
+        #     try:
+        #         newList = WordList(request.values["list"])
+        #         db.session.add(newList)
+        #         db.session.commit() 
+        #     except:
+        #         pass
+        if request.values['action'] == 'search' and request.values['word']:
+            return jsonify({'result': analyzeWords(getWords(request.values['word']))})
     return render_template("search.html", ip=ip)
 
-@app.route("/search_result", methods=["POST"])
+@app.route("/search_result", methods=["GET","POST"])
 def search_result():
-    if request.values['word']:
-        global current_result
-        word = request.values['word'].lower()
-        current_result = dictionary(word)
+    if request.method == "GET":
         li = WordList.query.all()
-        return render_template("search_result.html", word=word, result=current_result, list=li, select_list=select_list)
-    else:
-        return redirect(url_for('search'))
+        id = request.args.get('id')
+        if id:
+            spell, pron, current_result = analyzeTheWord(getTheWord(id))
+        return render_template("search_result.html", spell=spell, pron=pron, result=current_result, list=li, select_list=select_list)
+    # if request.values['action'] == 'search' and request.values['word']:
+    #     global current_result
+    #     current_result = getWords(request.values['word'])
+    #     li = WordList.query.all()
+    #     return render_template("search_result.html", word=word, result=current_result, list=li, select_list=select_list)
+    # else:
+    #     return redirect(url_for('search'))
 
 @app.route("/test", methods=["GET", "POST"])
 def test():
@@ -184,22 +194,26 @@ db = SQLAlchemy(app)
 class Word(db.Model):
     __tablename__ = 'word'
     id = db.Column(db.Integer, primary_key=True)
-    word = db.Column(db.String(100), nullable=False)
-    cixing = db.Column(db.String(10), nullable=False)
+    name = db.Column(db.String(20), nullable=False)
+    pron = db.Column(db.String(20), nullable=False)
+    cixing = db.Column(db.String(30), nullable=False)
     explain = db.Column(db.String(100), nullable=False)
+    explain_jp = db.Column(db.String(100), nullable=False)
     listName = db.Column(db.String(30), nullable=False)
     insert_time = db.Column(db.DateTime, default=datetime.now)
     update_time = db.Column(db.DateTime, onupdate=datetime.now, default=datetime.now)
  
-    def __init__(self, word, cixing, explain, listName):
-        self.word = word
+    def __init__(self, name, pron, cixing, explain, explain_jp, listName):
+        self.name = name
+        self.pron = pron
         self.cixing = cixing
         self.explain = explain
+        self.explain_jp = explain_jp
         self.listName = listName
 class WordList(db.Model):
     __tablename__ = 'wordList'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(30), unique= True,nullable=False)
+    name = db.Column(db.String(30), unique= True, nullable=False)
  
     def __init__(self, name):
         self.name = name

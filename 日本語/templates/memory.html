@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="word">
+  	<div class="word-top">
+        <p id="test-word">{{ word.word }}</p>
+        <p id="test-cixing">{{ word.cixing }}</p>
+  	</div>
+  	<div class="word-bottom">
+    	<p id="test-explain">{{ word.explain }}</p>
+  	</div>
+</div>
+<div class="bottom">
+    <form method="POST" action="{{url_for('memory')}}">
+        <input type="text" name="idx" value="{{ idx }}" hidden>
+        <button type="submit" class="btn btn-primary">下一個</button>
+    </form>
+</div>
+
+
+{% endblock %}
