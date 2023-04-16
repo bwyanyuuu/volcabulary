@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-
-        <h1>{{ spell }} {{ pron }}</h1>
-        <form method="POST" action="{{url_for('search')}}">
+        <h1>{{ hira | safe}}</h1><p>({{ pron }})</p>
+        <form method="POST" action="{{url_for('search_result')}}">
             <input type="text" name="word" value="{{word}}" hidden>
             <table class="table table-striped">
                 <thead>

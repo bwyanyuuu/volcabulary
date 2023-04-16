@@ -37,18 +37,16 @@ def index():
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
-    global select_list
     ip = get_host_ip()
-    if request.method == "GET":
-        select_list = None
-    
-    elif request.method == "POST":
+    if request.method == "POST":
         if request.values['action'] == "newWord":
             li = [int(i) for i in request.form.getlist('idx')]
             explain = request.form.getlist('new-mean')
             cixing = request.form.getlist('new-cixing')
             select_result = [current_result[i] for i in li] + ([[cixing[i], explain[i]] for i in range(len(explain))] if len(cixing) > 0 else [])
             for s in select_result:
+                if s[0] == '' or s[1] == '':
+                    continue
                 new_word = Word(request.values['word'], s[0], s[1], request.values["list"])
                 db.session.add(new_word)
             db.session.commit()

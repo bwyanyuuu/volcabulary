@@ -71,6 +71,7 @@ def getTheWord(id):
     if response.status_code == 200:
         # json_data = response.json()
         # print(json_data)
+        print(response.json())
         return response.json()
     else:
         print("Error:", response.text)
@@ -95,10 +96,33 @@ def analyzeTheWord(word):
     pron = word["result"]["result"][0]["word"]["pron"]
     result = []
     for w in word["result"]["result"][0]["subdetails"]:
-        result.append([cixing, w["title"][:w["title"].index("。")], w["title"][w["title"].index("。")+2:-1]])
+        try:
+            result.append([cixing, w["title"][:w["title"].index("。")], w["title"][w["title"].index("。")+2:-1]])
+        except:
+            result.append([cixing, w["title"], w["title"]])
     return spell, pron, result
+
+def hiragana(word):
+    url = 'https://api.kuroshiro.org/convert'
+
+    headers = {
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36'
+    }
+
+    payload = {
+        "str":word,
+        "to":"hiragana",
+        "mode":"furigana",
+        "romajiSystem":"nippon"
+    }
+    response = requests.post(url, headers=headers, json=payload)
+    if response.status_code == 200:
+        return response.json()["result"]
+    else:
+        print("Error:", response.text)
+        return None
 # analyzeWords("だるま")
 # analyzeTheWord("だるま")
 # getTheWord("ljvqRpsnJg")
 # print(analyzeWords(getWords("だるま")))
-analyzeTheWord(getTheWord('198983454'))
+# print(analyzeTheWord(getTheWord('198948949')))

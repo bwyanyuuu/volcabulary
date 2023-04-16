@@ -11,6 +11,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] =\
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 current_result = None
+current_word = None
 current_list = None
 current_wordList = None
 select_list = None
@@ -33,48 +34,53 @@ def get_host_ip():
 
 @app.route("/")
 def index():
-    db.create_all()
+    # db.create_all()
     return redirect(url_for('search'))
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
-    global select_list
     
     ip = get_host_ip()
-    if request.method == "GET":
-        select_list = None
     
-    elif request.method == "POST":
+    if request.method == "POST":
         print(request.values)
-        # if request.values['action'] == "newWord":
-        #     li = [int(i) for i in request.form.getlist('idx')]
-        #     explain = request.form.getlist('new-mean')
-        #     cixing = [value for key, value in request.form.items() if key.startswith('new-cixing')]
-        #     select_result = [current_result[i] for i in li] + ([[cixing[i], explain[i]] for i in range(len(explain))] if len(cixing) > 0 else [])
-        #     for s in select_result:
-        #         new_word = Word(request.values['word'], s[0], s[1], request.values["list"])
-        #         db.session.add(new_word)
-        #     db.session.commit()
-        #     select_list = request.values["list"]
-        # elif request.values['action'] == "newList":
-        #     try:
-        #         newList = WordList(request.values["list"])
-        #         db.session.add(newList)
-        #         db.session.commit() 
-        #     except:
-        #         pass
-        if request.values['action'] == 'search' and request.values['word']:
+        
+        if request.values['action'] == "newList":
+            try:
+                newList = WordList(request.values["list"])
+                db.session.add(newList)
+                db.session.commit() 
+            except:
+                pass
+        elif request.values['action'] == 'search' and request.values['word']:
             return jsonify({'result': analyzeWords(getWords(request.values['word']))})
     return render_template("search.html", ip=ip)
 
 @app.route("/search_result", methods=["GET","POST"])
 def search_result():
+    global select_list, current_result, current_word
     if request.method == "GET":
         li = WordList.query.all()
         id = request.args.get('id')
         if id:
             spell, pron, current_result = analyzeTheWord(getTheWord(id))
-        return render_template("search_result.html", spell=spell, pron=pron, result=current_result, list=li, select_list=select_list)
+            hira = hiragana(spell)
+            current_word = [spell, pron, hira]
+        return render_template("search_result.html", hira=hira, spell=spell, pron=pron, result=current_result, list=li, select_list=select_list)
+    elif request.method == "POST":
+        li = [int(i) for i in request.form.getlist('idx')]
+        explain = request.form.getlist('new-mean')
+        cixing = request.form.getlist('new-cixing')
+        select_result = [current_result[i] for i in li] + ([[cixing[i], explain[i]] for i in range(len(explain))] if len(cixing) > 0 else [])
+        for s in select_result:
+            if s[0] == '' or s[1] == '':
+                continue
+            new_word = Word(current_word[0], current_word[1], current_word[2], s[0], s[1], None, request.values["list"])
+            # print(new_word)
+            db.session.add(new_word)
+        db.session.commit()
+        select_list = request.values["list"]
+        return redirect(url_for('search'))
     # if request.values['action'] == 'search' and request.values['word']:
     #     global current_result
     #     current_result = getWords(request.values['word'])
@@ -145,6 +151,7 @@ def view():
     print(request.values)
     if request.method == "GET":
         word = Word.query.all()
+        # print(word[0]['name'])
     elif request.method == "POST":
         if request.values["action"] == "list":
             word, select_list = getList(request.values["list"])
@@ -196,16 +203,18 @@ class Word(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(20), nullable=False)
     pron = db.Column(db.String(20), nullable=False)
+    hiragana = db.Column(db.String(100), nullable=False)
     cixing = db.Column(db.String(30), nullable=False)
     explain = db.Column(db.String(100), nullable=False)
-    explain_jp = db.Column(db.String(100), nullable=False)
+    explain_jp = db.Column(db.String(100))
     listName = db.Column(db.String(30), nullable=False)
     insert_time = db.Column(db.DateTime, default=datetime.now)
     update_time = db.Column(db.DateTime, onupdate=datetime.now, default=datetime.now)
  
-    def __init__(self, name, pron, cixing, explain, explain_jp, listName):
+    def __init__(self, name, pron, hiragana, cixing, explain, explain_jp, listName):
         self.name = name
         self.pron = pron
+        self.hiragana = hiragana
         self.cixing = cixing
         self.explain = explain
         self.explain_jp = explain_jp

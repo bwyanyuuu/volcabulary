@@ -5,9 +5,11 @@ $(document).ready(function(){
         console.log("btn-addColumn");
         $("tbody").append(`
             <tr>
-                <th scope="row"><button type="button" class="btn btn-danger btn-rmvColumn">刪除</button></th>
-                <td><input type="text" name="new-mean"></td>
-            </tr>
+            <th scope="row"><button type="button" class="btn btn-danger btn-rmvColumn">刪除</button></th>
+            <td></td>
+            <td><input type="text" name="new-cixing"></td>
+            <td><input type="text" name="new-mean"></td>
+        </tr>
         `);
         new_cnt += 1;
     });

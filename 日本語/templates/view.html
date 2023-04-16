@@ -29,17 +29,18 @@
         <thead>
         <tr>
             <th scope="col"></th>
-            <th scope="col">單字</th>
-            <th scope="col">詞性</th>
-            <th scope="col">解釋</th>
-            <th scope="col"></th>
+            <th scope="col">単語</th>
+            <th scope="col">発音</th>
+            <th scope="col">品詞</th>
+            <th scope="col">意味</th>
         </tr>
         </thead>
         <tbody>
             {% for w in word %}
             <tr>
                 <th class="edit-only"><input type="checkbox" name="idx" value={{w.id}}></th>
-                <td>{{w.word}}</td>
+                <td>{{w.name}}</td>
+                <td>{{w.pron}}</td>
                 <td>{{w.cixing}}</td>
                 <td>{{w.explain}}</td>
                 <td class="edit-only">
